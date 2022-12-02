@@ -155,6 +155,7 @@ module.exports = class bitget extends Exchange {
                             'account/getInfo': 20,
                             'account/assets': 2,
                             'account/transferRecords': 4,
+                            'public/products': 1,
                             'wallet/deposit-address': 4,
                             'wallet/withdrawal-inner': 4,
                             'wallet/withdrawal-list': 1,
@@ -180,6 +181,7 @@ module.exports = class bitget extends Exchange {
                             'account/account': 2,
                             'account/accounts': 2,
                             'account/open-count': 1,
+                            'market/contracts': 1,
                             'order/current': 2,
                             'order/history': 2,
                             'order/detail': 2,
@@ -1011,9 +1013,10 @@ module.exports = class bitget extends Exchange {
     }
 
     async fetchMarketsByType (type, params = {}) {
+        const pp = this.checkRequiredCredentials (false) ? 'private' : 'public';
         const method = this.getSupportedMapping (type, {
-            'spot': 'publicSpotGetPublicProducts',
-            'swap': 'publicMixGetMarketContracts',
+            'spot': pp + 'SpotGetPublicProducts',
+            'swap': pp + 'MixGetMarketContracts',
         });
         const response = await this[method] (params);
         //
