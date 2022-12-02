@@ -172,6 +172,7 @@ const pro = {
     'bitcoincom':              require ('./js/pro/bitcoincom.js'),
     'bitfinex':                require ('./js/pro/bitfinex.js'),
     'bitfinex2':               require ('./js/pro/bitfinex2.js'),
+    'bitget':                  require ('./js/pro/bitget.js'),
     'bitmart':                 require ('./js/pro/bitmart.js'),
     'bitmex':                  require ('./js/pro/bitmex.js'),
     'bitopro':                 require ('./js/pro/bitopro.js'),
